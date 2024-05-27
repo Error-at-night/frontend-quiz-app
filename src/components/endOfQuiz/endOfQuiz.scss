@@ -1,0 +1,43 @@
+@import "../../variables/variables.scss";
+
+section.dark.endOfQuiz .completed {
+    font-weight: 200;
+    font-size: 32px;
+}
+
+section.light.endOfQuiz .completed {
+    font-weight: 200;
+    font-size: 32px;
+}
+
+section.dark.endOfQuiz .youScored {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+section.light.endOfQuiz .youScored {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+section.dark.endOfQuiz .backgroundColor{
+    background-color: $darkBlue;
+    box-shadow: 0 0 3px 1px $blackOpacity;
+    border-radius: 12px;
+}
+
+section.light.endOfQuiz .backgroundColor{
+    background-color: $white;
+    box-shadow: 0 0 3px 1px $darkGrayOpacity;
+    border-radius: 12px;
+}
+
+section.dark.endOfQuiz .playAgain {
+    box-shadow: 0 0 3px 1px $blackOpacity;
+    border-radius: 12px;
+}
+
+section.light.endOfQuiz .playAgain {
+    box-shadow: 0 0 3px 1px $darkGrayOpacity;
+    border-radius: 12px;
+}

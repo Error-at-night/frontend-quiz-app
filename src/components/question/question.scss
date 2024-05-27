@@ -1,0 +1,13 @@
+@import "../../variables/variables.scss";
+
+section {
+    font-family: "Rubik", sans-serif;
+}
+
+section.dark p.number {
+    color: $lightBlue;
+}
+
+section.light p.number {
+    color: $veryDarkBlue;
+}

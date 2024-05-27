@@ -1,0 +1,47 @@
+@import "../../variables/variables.scss";
+
+section {
+    font-family: "Rubik", sans-serif;
+}
+
+section.dark {
+    color: $white;
+}
+
+section.light {
+    color: $veryDarkBlue;
+}
+
+section .welcome {
+    font-weight: 200;
+    font-size: 32px;
+}
+
+section .boldText {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+section.dark .small {
+    color: $lightBlue;
+}
+
+section.light .small {
+    color: $darkBlue;
+}
+
+section.dark .quizTitle {
+    background-color: $darkBlue;
+    box-shadow: 0 0 3px 1px $blackOpacity;
+    border-radius: 12px;
+}
+
+section.light .quizTitle {
+    background-color: $white;
+    box-shadow: 0 0 3px 1px $darkGrayOpacity;
+    border-radius: 12px;
+}
+
+section.dark .iconBgColors, section.light .iconBgColors {
+    border-radius: 5px;
+}

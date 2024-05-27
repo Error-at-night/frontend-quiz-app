@@ -1,0 +1,28 @@
+@import "../../variables/variables.scss";
+
+section progress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 12px;
+}
+
+section.dark ::-webkit-progress-bar {
+    background-color: $darkGray;
+    border-radius: 100px;
+}
+
+section.light ::-webkit-progress-bar {
+    background-color: $white;
+    border-radius: 100px;
+}
+
+section.dark ::-webkit-progress-value {
+    background-color: $purple;
+    border-radius: 100px;
+}
+
+section.light ::-webkit-progress-value {
+    background-color: $purple;
+    border-radius: 100px;
+}
+

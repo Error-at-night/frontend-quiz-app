@@ -1,0 +1,11 @@
+@import "./variables/variables.scss";
+
+.App.dark {
+    background-color: $darkBlue;
+    min-height: 100vh;
+}
+
+.App.light {
+    background-color: $veryLightBlue;
+    min-height: 100vh;
+}

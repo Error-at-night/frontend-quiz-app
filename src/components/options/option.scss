@@ -1,0 +1,25 @@
+@import "../../variables/variables.scss";
+
+section.dark .quizOption {
+    background-color: $darkBlue;
+    box-shadow: 0 0 3px 1px $blackOpacity;
+    border-radius: 12px;
+}
+
+section.light .quizOption {
+    background-color: $white;
+    box-shadow: 0 0 3px 1px $darkGrayOpacity;
+    border-radius: 12px;
+}
+
+section.dark .alphabets, section.light .alphabets {
+    border-radius: 5px;
+}
+
+section.dark .sumbitAnswer, section.dark .nextQuestion, section.dark .finishQuiz {
+    box-shadow: 0 0 3px 1px $blackOpacity;
+}
+
+section.light .sumbitAnswer, section.light .nextQuestion, section.light .finishQuiz {
+    box-shadow: 0 0 3px 1px $darkGrayOpacity;
+}
