@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { QuizContext } from "../../context/Context";
 
@@ -14,12 +15,20 @@ import iconSunLight from "../../assets/images/icon-sun-light.svg"
 function Home() {
   
   const { questions, dispatch, toggle } = useContext(QuizContext)
+
+  const navigate = useNavigate()
   
   const iconBgColors = {
     HTML: "#FFF1E9",
     CSS: "#E0FDEF",
     JavaScript: "#EBF0FF",
     Accessibility: "#F6E7FF",
+  }
+
+  const handleDispatch = (question) => {
+    dispatch({ type: "selectedSubject", payload: question.id })
+    navigate(`/${question.title}`)
+    sessionStorage.setItem("question", JSON.stringify(question))
   }
 
   return (
@@ -39,7 +48,7 @@ function Home() {
           {questions.map((question) => (
             <div key={question.id} className=""> 
               <button className="mb-10 py-3 pl-5 md:pr-72 flex items-center w-full md:max-w-sm lg:max-w-lg cursor-pointer quizTitle" 
-                onClick={() => dispatch({ type: "selectedSubject", payload: question.id })}
+                onClick={() => handleDispatch(question)}
               >
                 <div className="flex items-center">
                   <img src={question.icon} alt={question.title} className="iconBgColors" style={{ backgroundColor: iconBgColors[question.title] }} width={42} height="auto" />

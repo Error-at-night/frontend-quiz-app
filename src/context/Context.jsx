@@ -5,7 +5,7 @@ export const QuizContext = createContext()
 
 const initialState = {
   questions: [],
-  selectedSubject: [],
+  selectedSubject: JSON.parse(sessionStorage.getItem("question") || "[]"),
   status: "loading",
   error: null,
   index: 0,

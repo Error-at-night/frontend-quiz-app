@@ -1,4 +1,6 @@
 import { useContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 import { QuizContext } from "../../context/Context"
 
 import correct from "../../assets/images/icon-correct.svg"
@@ -7,6 +9,8 @@ import incorrect from "../../assets/images/icon-incorrect.svg"
 import "./option.scss"
 
 function Options() {
+
+    const navigate = useNavigate()
     
     const [clickedOption, setClickedOption] = useState(null)
     const [submit, setSubmit] = useState(false)
@@ -53,12 +57,17 @@ function Options() {
 
     const alphabets = ["A", "B", "C", "D"]
 
+    const handleFinishQuizDispatch = () => {
+        dispatch({ type: "endOfQuiz" })
+        navigate("/endOfQuiz")
+    }
+
     return (
         <>
             {selectedSubject.questions[index].options.map((option, index) => (
-                <div key={option}>
+                <div key={option} className="cursor-pointer">
                     <button
-                        className={`mb-10 py-4 px-3 text-start flex items-center font-bold text-lg w-full outline-none quizOption group
+                        className={`mb-10 py-4 px-3 text-start flex items-center font-bold text-lg w-full outline-none quizOption group cursor-pointer
                             ${clickedOption === option && !submit ? "border-4 border-purple-500" : ""}
                             ${submit && option === clickedOption && option === correctAnswer ? "border-4 border-green-400" : ""}
                             ${submit && option === clickedOption && option !== correctAnswer ? "border-4 border-red-500" : ""}
@@ -87,14 +96,14 @@ function Options() {
             {submit ? (
                 index === selectedSubject.questions.length - 1 ? (
                     <button
-                        className="mb-10 py-6 px-3 rounded-2xl w-full cursor-pointer transition-colors ease-in-out duration-200 finishQuiz font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
-                        onClick={() => dispatch({ type: "endOfQuiz"})}
+                        className="mb-10 py-6 px-3 rounded-2xl w-full outline-none cursor-pointer transition-colors ease-in-out duration-200 finishQuiz font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
+                        onClick={handleFinishQuizDispatch}
                     >
                         Finish Quiz
                     </button>
                 ) : (
                     <button
-                        className="mb-10 py-6 px-3 rounded-2xl w-full cursor-pointer transition-colors ease-in-out duration-200 nextQuestion font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
+                        className="mb-10 py-6 px-3 rounded-2xl w-full outline-none cursor-pointer transition-colors ease-in-out duration-200 nextQuestion font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
                         onClick={handleNextQuestion}
                     >
                         Next Question
@@ -102,7 +111,7 @@ function Options() {
                 )
             ) : (
                 <button
-                    className="mb-10 py-6 px-3 rounded-2xl w-full cursor-pointer transition-colors ease-in-out duration-200 submitAnswer font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
+                    className="mb-10 py-6 px-3 rounded-2xl w-full outline-none cursor-pointer transition-colors ease-in-out duration-200 submitAnswer font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
                     onClick={handleSubmitAnswer}
                 >
                     Submit Answer

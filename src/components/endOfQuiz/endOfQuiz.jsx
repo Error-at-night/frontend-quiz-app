@@ -1,4 +1,6 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+
 import { QuizContext } from "../../context/Context"
 
 import ToggleButton from "../toggleButton/ToggleButton"
@@ -11,6 +13,8 @@ import iconSunLight from "../../assets/images/icon-sun-light.svg"
 import "./endOfQuiz.scss"
 
 function EndOfQuiz() {
+    const navigate = useNavigate()
+
     const { storeSelectedAnswers, selectedSubject, dispatch, toggle } = useContext(QuizContext)
     
     const calculateScore = () => {
@@ -27,6 +31,11 @@ function EndOfQuiz() {
     }
 
     const courseLength = selectedSubject.questions.length
+
+    const handlePlayAgainDispatch = () => {
+        dispatch({ type: "playAgain" })
+        navigate("/")
+    }
 
     return (
         <section className={`${toggle ? "dark" : "light"} endOfQuiz box-border px-3 sm:px-5 block md:flex justify-evenly items-center`}>
@@ -57,7 +66,7 @@ function EndOfQuiz() {
                     </div>
                     <button
                         className="mb-10 py-6 px-3 rounded-2xl w-full cursor-pointer transition-colors ease-in-out duration-200 playAgain font-bold text-lg text-white bg-purple-600 hover:bg-purple-400"
-                        onClick={() => dispatch({ type: "playAgain" })}
+                        onClick={handlePlayAgainDispatch}
                     >
                         Play Again
                     </button>

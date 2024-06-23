@@ -17,8 +17,6 @@ function Question() {
   
   const { selectedSubject, index, toggle } = useContext(QuizContext)
 
-  console.log(selectedSubject)
-
   const iconBgColors = {
     HTML: "#FFF1E9",
     CSS: "#E0FDEF",
